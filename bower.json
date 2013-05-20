@@ -1,0 +1,11 @@
+{
+  "name": "backbone-boilerplate",
+  "version": "0.1.0",
+  "dependencies": {
+    "requirejs": "*",
+    "almond": "*",
+    "jquery": "*",
+    "backbone": "*",
+    "layoutmanager": "*"
+  }
+}
