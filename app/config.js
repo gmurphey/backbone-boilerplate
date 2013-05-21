@@ -3,24 +3,31 @@ require.config({
 
   // Initialize the application with the main application file and the JamJS
   // generated configuration file.
-  deps: ["../vendor/jam/require.config", "main"],
+  deps: ["main"],
 
   paths: {
-    // Use the underscore build of Lo-Dash to minimize incompatibilities.
-    "lodash": "../vendor/jam/lodash/dist/lodash.underscore"
-
-    // Put additional paths here.
+    "lodash": "../vendor/js/lodash/dist/lodash.underscore",
+    "jquery": "../vendor/js/jquery/jquery",
+    "handlebars": "../vendor/js/handlebars/handlebars",
+    "backbone": "../vendor/js/backbone/backbone",
+    "backbone.layoutmanager": "../vendor/js/layoutmanager/backbone.layoutmanager"
   },
 
   map: {
-    // Ensure Lo-Dash is used instead of underscore.
     "*": { "underscore": "lodash" }
-
-    // Put additional maps here.
   },
 
   shim: {
-    // Put shims here.
+    "backbone": {
+      deps: ["lodash", "jquery"],
+      exports: "Backbone"
+    },
+
+    "lodash": {
+      exports: "_"
+    },
+
+    "backbone.layoutmanager": ["handlebars", "backbone"]
   }
 
 });

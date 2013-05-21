@@ -5,7 +5,9 @@
     "requirejs": "*",
     "almond": "*",
     "jquery": "*",
+    "lodash": "*",
     "backbone": "*",
+    "handlebars": "*",
     "layoutmanager": "*"
   }
 }

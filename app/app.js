@@ -1,15 +1,12 @@
 define([
   "backbone.layoutmanager"
-
-  // Include additional libraries installed with JamJS or placed in the
-  // `vendor/js` directory, here.
 ],
 
 function(LayoutManager) {
 
   // Provide a global location to place configuration settings and module
   // creation.
-  var app = {
+ var app = {
     // The root path to run the application.
     root: "/"
   };

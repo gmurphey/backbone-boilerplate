@@ -32,23 +32,16 @@ mkdir myproject && cd myproject
 
 # Using Git, fetch only the last few commits.  You don't need the full history
 # for your project.
-git clone --q --depth 0 git@github.com:tbranyen/backbone-boilerplate.git .
+git clone --q --depth 0 git@github.com:gmurphey/backbone-boilerplate.git .
+
+# Install npm modules and bower dependencies
+npm install
+bower install
+
+# Start the server
+sudo grunt connect
 ```
 
-## Documentation ##
-
-View the Backbone Boilerplate documentation here:
-
-[GitHub Wiki](https://github.com/tbranyen/backbone-boilerplate/wiki)
-
-## Build process ##
-
-To use the new and improved build process, please visit the 
-[grunt-bbb](https://github.com/backbone-boilerplate/grunt-bbb)
-plugin repo and follow the instructions to install.  Basing your project off
-this repo will allow the `bbb` commands to work out-of-the-box.
-
-
 ## License
-Copyright (c) 2013 Tim Branyen (@tbranyen)  
+Copyright (c) 2013 Tim Branyen (@tbranyen)
 Licensed under the MIT license.
