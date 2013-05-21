@@ -27,7 +27,14 @@ require.config({
       exports: "_"
     },
 
-    "backbone.layoutmanager": ["handlebars", "backbone"]
+    "handlebars": {
+      exports: "Handlebars"
+    },
+
+    "backbone.layoutmanager": {
+      deps: ["jquery", "backbone", "underscore"],
+      exports: "Backbone.Layout"
+    }
   }
 
 });
