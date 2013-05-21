@@ -27,21 +27,23 @@ module.exports = function(grunt) {
       },
 
       all: {
-        src: ["vendor/js/libs/almond.js", "dist/debug/templates.js", "dist/debug/require.js"],
-        dest: "dist/debug/require.js",
+        src: ["assets/scripts/vendor/almond/almond.js", "dist/debug/templates.js", "dist/debug/require.js"],
+        dest: "dist/debug/require.js"
       }
     },
 
     cssmin: {
       all: {
         src: ["dist/debug/index.css"],
-        dest: "dist/release/"
+        dest: "dist/release/index.css"
       }
     },
 
     uglify: {
       all: {
-        "dist/release/require.js": ["dist/debug/require.js"]
+        files: {
+          "dist/release/require.js": ["dist/debug/require.js"]
+        }
       }
     },
 
@@ -64,9 +66,9 @@ module.exports = function(grunt) {
       debug: {
         options: {
           routes: {
-            "/app/styles/*path":      "/dist/debug/[path]",
-            "/app/*path":             "/dist/debug/[path]",
-            "/vendor/js/libs/*path":  "/dist/debug/[path]"
+            "/assets/styles/*path":                   "/dist/debug/[path]",
+            "/assets/scripts/vendor/requirejs/*path": "/dist/debug/[path]",
+            "/app/*path":                             "/dist/debug/[path]"
           }
         }
       },
@@ -74,9 +76,9 @@ module.exports = function(grunt) {
       release: {
         options: {
           routes: {
-            "/app/styles/*path":      "/dist/release/[path]",
-            "/app/*path":             "/dist/release/[path]",
-            "/vendor/js/libs/*path":  "/dist/release/[path]"
+            "/assets/styles/*path":                   "/dist/release/[path]",
+            "/assets/scripts/vendor/requirejs/*path": "/dist/release/[path]",
+            "/app/*path":                             "/dist/release/[path]"
           }
         }
       }
@@ -87,8 +89,16 @@ module.exports = function(grunt) {
     },
 
     less: {
-      files: {
-        "app/styles/index.css": "app/styles/less/index.less"
+      all: {
+        files: {
+          "assets/styles/index.css": "assets/styles/less/index.less"
+        }
+      },
+
+      debug: {
+        files: {
+          "dist/debug/index.css": "assets/styles/less/index.less"
+        }
       }
     },
 
@@ -108,7 +118,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask("test", ["jshint", "qunit"]);
-  grunt.registerTask("debug", ["clean", "jshint", "requirejs", "concat"]);
+  grunt.registerTask("debug", ["clean", "jshint", "requirejs", "concat", "less:debug"]);
   grunt.registerTask("release", ["debug", "uglify", "cssmin"]);
 
   grunt.loadNpmTasks("grunt-contrib-jshint");
@@ -117,6 +127,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-qunit");
+  grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-connect");

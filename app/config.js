@@ -6,11 +6,11 @@ require.config({
   deps: ["main"],
 
   paths: {
-    "lodash": "../vendor/js/lodash/dist/lodash.underscore",
-    "jquery": "../vendor/js/jquery/jquery",
-    "handlebars": "../vendor/js/handlebars/handlebars",
-    "backbone": "../vendor/js/backbone/backbone",
-    "backbone.layoutmanager": "../vendor/js/layoutmanager/backbone.layoutmanager"
+    "lodash": "../assets/scripts/vendor/lodash/dist/lodash.underscore",
+    "jquery": "../assets/scripts/vendor/jquery/jquery",
+    "handlebars": "../assets/scripts/vendor/handlebars/handlebars",
+    "backbone": "../assets/scripts/vendor/backbone/backbone",
+    "backbone.layoutmanager": "../assets/scripts/vendor/layoutmanager/backbone.layoutmanager"
   },
 
   map: {
