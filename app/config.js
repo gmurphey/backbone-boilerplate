@@ -32,7 +32,7 @@ require.config({
     },
 
     "backbone.layoutmanager": {
-      deps: ["jquery", "backbone", "underscore"],
+      deps: ["backbone"],
       exports: "Backbone.Layout"
     }
   }

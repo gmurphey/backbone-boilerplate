@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     connect: {
       options: {
         hostname: "*",
-        port: 80,
+        port: 9001,
         keepalive: true,
 
         middleware: function (connect, options) {
@@ -91,13 +91,13 @@ module.exports = function(grunt) {
     less: {
       all: {
         files: {
-          "assets/styles/index.css": "assets/styles/less/index.less"
+          "assets/styles/index.css": "assets/styles/less/**/*.less"
         }
       },
 
       debug: {
         files: {
-          "dist/debug/index.css": "assets/styles/less/index.less"
+          "dist/debug/index.css": "assets/styles/less/**/*.less"
         }
       }
     },
